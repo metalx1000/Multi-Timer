@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Multi Timer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script>
+
+    var Intervals;
+    var Seconds = 0;
+    var StartTime;
+    var StopTime;
+    var time;
+    $(document).ready(function(){
+      $("#add").click(addName);
+      $("#name").keyup(function(e){
+        if(e.keyCode == 13){
+          addName();
+        }
+      });
+
+      //if entry click stop timer for it
+      $("#main").on("click",".line",function(){
+        var stop = new Date().getTime();
+        var x = $(this).find(".time").attr("stop", stop);
+      });
+
+      $("#start").click(startTimer);
+    });
+
+    function addName(){
+      var name = $("#name").val();
+      $("#name").val("");
+      if(name != ""){
+        $("#main").append("<tr id='"+name+"' class='line'><td>"+name+"</td><td class='time'>0</td></tr>");
+      }
+    }
+
+    function startTimer(){
+      $("#start").hide();
+      $("#clear").show();
+      if(localStorage.timerStart){
+        StartTime = localStorage.timerStart;
+      }else{
+        localStorage.removeItem("stopTimer");
+        StartTime = new Date().getTime();
+        localStorage.timerStart = StartTime;
+      }
+
+      Intervals = setInterval(function(){
+        if(localStorage.stopTimer){
+          clearInterval(Intervals);
+          update();
+        }else{
+          time = new Date().getTime();
+          var ct = time.toString();
+          var st = StartTime.toString(); 
+          time = getTimeDiff(st,ct);
+          //console.log(time);
+          //Seconds+=1;
+          update();
+        }
+      },1000);
+    }
+
+    function getTimeDiff(start, stop){
+      var diff = (stop-start);
+      var hours = Math.floor( diff / (1000*60*60) );
+      var mins  = Math.floor( diff / (1000*60) );
+      var secs  = Math.floor( diff / 1000 );
+      
+      if(secs >= 60){
+        //console.log(secs);
+        var div = mins * 60;
+        secs = secs - div;
+      }
+      if(secs<10){secs = "0"+secs};
+      return mins + ":" + secs;
+    }
+
+    function update(){
+      $("#mainTime").html(time);
+      $(".time").each(function(item){
+        if($(this).attr("stop") == undefined){
+          $(this).html(time);
+        }else{
+          var ct = $(".time").attr("stop");
+          var st = StartTime.toString(); 
+          var t = getTimeDiff(st,ct);
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Multi Timer <div id="mainTime"></div></h2>
+  <div class="form-group">
+    <label for="name">Add Name:</label>
+    <input type="text" class="form-control" id="name">
+    <button id="add" type="button" class="btn btn-primary btn-lg btn-block">Add Name</button>
+  </div>
+  <table class="table table-striped">
+    <tbody id="main"></tbody>
+  </table>
+  <button id="start" type="button" class="btn btn-primary btn-lg btn-block">Start</button>
+  <button id="clear" type="button" class="btn btn-danger btn-lg btn-block">Clear</button>
+</div>
+
+</body>
+</html>
+
