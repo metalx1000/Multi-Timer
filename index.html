@@ -29,7 +29,16 @@
       });
 
       $("#start").click(startTimer);
+      $("#clear").click(function(){
+        clearInterval(Intervals);
+        localStorage.removeItem("timerStart");
+        $("#main").html("");
+      });
     });
+
+    function save(){
+      localStorage.timerMain = $("#main").html();
+    }
 
     function addName(){
       var name = $("#name").val();
