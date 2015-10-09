@@ -15,6 +15,11 @@
     var StopTime;
     var time;
     $(document).ready(function(){
+      if(localStorage.timerStart){
+        $("#main").html(localStorage.timerMain);
+        startTimer();
+      }
+      
       $("#add").click(addName);
       $("#name").keyup(function(e){
         if(e.keyCode == 13){
@@ -25,7 +30,14 @@
       //if entry click stop timer for it
       $("#main").on("click",".line",function(){
         var stop = new Date().getTime();
-        var x = $(this).find(".time").attr("stop", stop);
+        $(this).find(".time").attr("stop", stop);
+        var color = $(this).css("background-color");
+        console.log(color);
+        if(color.indexOf("249")>-1){
+          $(this).css('background','#FF0088');
+        }else{
+          $(this).css('background','red');
+        }
       });
 
       $("#start").click(startTimer);
@@ -33,6 +45,8 @@
         clearInterval(Intervals);
         localStorage.removeItem("timerStart");
         $("#main").html("");
+        $("#start").show();
+        $("#mainTime").html("0:00");
       });
     });
 
@@ -60,6 +74,8 @@
       }
 
       Intervals = setInterval(function(){
+        save();
+        
         if(localStorage.stopTimer){
           clearInterval(Intervals);
           update();
@@ -107,7 +123,7 @@
 <body>
 
 <div class="container">
-  <h2>Multi Timer <div id="mainTime"></div></h2>
+  <h2>Multi Timer <div id="mainTime">0:00</div></h2>
   <div class="form-group">
     <label for="name">Add Name:</label>
     <input type="text" class="form-control" id="name">
