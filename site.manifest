@@ -2,11 +2,8 @@ CACHE MANIFEST
 
 # version 1
 
-
-.
 ./index.html
 ./site.manifest
-./icons
 ./icons/android-chrome-72x72.png
 ./icons/mstile-310x310.png
 ./icons/apple-touch-icon.png
