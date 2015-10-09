@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# version 1
+# version 2
 
 ./index.html
 ./site.manifest
@@ -32,5 +32,8 @@ CACHE MANIFEST
 ./icons/apple-touch-icon-57x57.png
 ./icons/android-chrome-192x192.png
 ./icons/apple-touch-icon-precomposed.png
+./css/bootstrap.min.css
 ./README.md
+./libs/bootstrap.min.js
+./libs/jquery.min.js
 ./LICENSE
