@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# version 1444487234
+# version 1444487557
 
 ./README.md
 ./css/bootstrap.min.css
@@ -37,3 +37,9 @@ CACHE MANIFEST
 ./icons/browserconfig.xml
 ./libs/jquery.min.js
 ./libs/bootstrap.min.js
+./fonts/fontawesome-webfont.woff2
+./fonts/FontAwesome.otf
+./fonts/fontawesome-webfont.eot
+./fonts/fontawesome-webfont.woff
+./fonts/fontawesome-webfont.ttf
+./fonts/fontawesome-webfont.svg
