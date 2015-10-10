@@ -1,39 +1,39 @@
 CACHE MANIFEST
 
-# version 2
+# version 1444487234
 
+./README.md
+./css/bootstrap.min.css
+./css/font-awesome.min.css
+./LICENSE
 ./index.html
-./site.manifest
 ./icons/android-chrome-72x72.png
 ./icons/mstile-310x310.png
-./icons/apple-touch-icon.png
-./icons/apple-touch-icon-180x180.png
-./icons/apple-touch-icon-114x114.png
-./icons/apple-touch-icon-152x152.png
-./icons/favicon.ico
-./icons/android-chrome-48x48.png
-./icons/mstile-150x150.png
 ./icons/mstile-70x70.png
-./icons/favicon-32x32.png
-./icons/android-chrome-96x96.png
 ./icons/android-chrome-36x36.png
-./icons/favicon-16x16.png
-./icons/apple-touch-icon-60x60.png
-./icons/browserconfig.xml
+./icons/android-chrome-48x48.png
 ./icons/apple-touch-icon-144x144.png
-./icons/apple-touch-icon-120x120.png
+./icons/android-chrome-192x192.png
+./icons/favicon.ico
+./icons/apple-touch-icon-57x57.png
+./icons/mstile-150x150.png
 ./icons/apple-touch-icon-76x76.png
+./icons/apple-touch-icon-precomposed.png
+./icons/apple-touch-icon-60x60.png
+./icons/favicon-16x16.png
 ./icons/apple-touch-icon-72x72.png
+./icons/android-chrome-144x144.png
+./icons/apple-touch-icon-152x152.png
+./icons/apple-touch-icon-114x114.png
+./icons/android-chrome-96x96.png
+./icons/apple-touch-icon.png
 ./icons/mstile-310x150.png
 ./icons/favicon-96x96.png
+./icons/favicon-32x32.png
 ./icons/mstile-144x144.png
 ./icons/manifest.json
-./icons/android-chrome-144x144.png
-./icons/apple-touch-icon-57x57.png
-./icons/android-chrome-192x192.png
-./icons/apple-touch-icon-precomposed.png
-./css/bootstrap.min.css
-./README.md
-./libs/bootstrap.min.js
+./icons/apple-touch-icon-180x180.png
+./icons/apple-touch-icon-120x120.png
+./icons/browserconfig.xml
 ./libs/jquery.min.js
-./LICENSE
+./libs/bootstrap.min.js
